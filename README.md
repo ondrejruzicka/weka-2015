@@ -1,9 +1,9 @@
 # Webová kartografie 2015
-Repozitář sloužící pro sběr dat z úkolu zadaného 14.4.2015 v předmětu KART2/WEKAR
+Repozitář sloužící pro sběr dat z úkolu zadaného 15.4.2015 v předmětu KART2/WEKAR
 
 ## Zadání úkolu
 1. Vytvořit si účet na serveru www.github.com
-2. Po přihlášení na adrese tohoto repozitáře kliknout na odkaz Fork a vytvořit si tak kopii tohoto repozitáře ve vlastním účtu. Otestovat jestli funguje můžete na adrese *github.com/[vase-uzivatelske-jmeno]/weka-2015-prvaci/*
+2. Po přihlášení na adrese tohoto repozitáře kliknout na odkaz Fork a vytvořit si tak kopii tohoto repozitáře ve vlastním účtu. Otestovat jestli funguje můžete na adrese *github.com/[vase-uzivatelske-jmeno]/weka-2015/*
 3. Jít na stránky www.geojson.io a přihlásit se pomocí GitHub účtu
 4. Vytvořit linii, která znázorňuje vaši dnešní cestu do školy
 5. K linii přidat atribut
