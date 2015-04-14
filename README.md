@@ -1,4 +1,4 @@
-# Webová kartografie 2015 - prváci
+# Webová kartografie 2015
 Repozitář sloužící pro sběr dat z úkolu zadaného 14.4.2015 v předmětu webová kartografie
 
 ## Zadání úkolu
