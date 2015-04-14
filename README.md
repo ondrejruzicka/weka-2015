@@ -18,7 +18,7 @@ Repozitář sloužící pro sběr dat z úkolu zadaného 14.4.2015 v předmětu 
    a potvrdit:
    
    ![](http://ondrejruzicka.cz/weka/img3.png)
-9. Tím dosáhnete zařazení nového souboru zpět do původního (mého) repozitáře.
+9. Tím dosáhnete zařazení nového souboru zpět do původního repozitáře (poté co tuto změnu potvrdím).
 10. Hotovo :-)
 
 V případě problémů pište na ruzicka.o@gmail.com
