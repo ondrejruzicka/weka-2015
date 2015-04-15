@@ -3,7 +3,13 @@
   "features": [
     {
       "type": "Feature",
-      "properties": {},
+      "properties": {
+        "stroke": "#555555",
+        "stroke-width": 2,
+        "stroke-opacity": 1,
+        "jmeno": "Klara",
+        "cas": 5
+      },
       "geometry": {
         "type": "LineString",
         "coordinates": [
