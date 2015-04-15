@@ -8,7 +8,7 @@
         "stroke-width": 2,
         "stroke-opacity": 1,
         "jmeno": "Ondrej Ruzicka",
-        "cas": 15
+        "cas": 18
       },
       "geometry": {
         "type": "LineString",
@@ -22,7 +22,7 @@
             49.60169925531044
           ],
           [
-            17.258319854736328,
+            17.858319854736328,
             49.59958539721796
           ],
           [
