@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mapa</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6/leaflet.css" />
+  <script src="http://cdn.leafletjs.com/leaflet-0.6/leaflet.js"></script>
+
+</head>
+
+<style type="text/css">
+  body {
+    font-family: sans-serif;
+  }
+
+  #map {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 490px;
+  }
+
+  #sidebar {
+    position: absolute;
+    padding: 45px;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 400px;
+  }
+
+.obsah {
+  display: none;
+  height: 500px;
+}
+
+</style>
+
+
+<body>
+  <!--
+
+   -->
+<div id="map">
+
+</div>
+<div id="sidebar">
+
+
+<div class="obsah">
+
+  <h1 class="jmeno"></h1>
+
+<h2>byl/a ve škole za <span class="cas"></span> minut</h2>
+
+</div>
+
+
+</div>
+
+
+
+<script type="text/javascript">
+   var tracks;
+
+   var bounds = new L.LatLngBounds(
+            new L.LatLng(49.582966, 17.236534),
+            new L.LatLng(49.601517, 17.280891));
+        var map = L.map('map').fitBounds(bounds);
+
+         var url = 'http://geoportal-orto2.cuzk.cz/WMTS_ORTOFOTO_900913/WMTService.aspx?service=WMTS&request=GetTile&version=1.0.0&layer=orto&style=default&format=image/jpeg&TileMatrixSet=googlemapscompatibleext2:epsg:3857&TileMatrix={z}&TileRow={y}&TileCol={x}';
+
+        // var url = 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+
+        L.tileLayer(url).addTo(map);
+
+
+
+        var options = {
+            minZoom: 12,
+            maxZoom: 18,
+            opacity: 1.0,
+            tms: false
+        };
+
+var featureStyle = {
+    "color": "#ff0000",
+    "weight": 5,
+    "opacity": 0.4
+};
+
+var highlightStyle = {
+    "color": "#00ffff",
+    "weight": 5,
+    "opacity": 1
+};
+
+
+
+      $.ajax({
+        url: 'http://dev.ondrejruzicka.cz/weka.geojson',
+        type: 'GET',
+        dataType: 'json'
+      })
+      .done(function(data) {
+
+
+       tracks = new L.geoJson(data, {
+
+
+        style: featureStyle,
+
+    onEachFeature: function (feature, layer) {
+
+            layer.on("click", function (e) {
+              reset_style(tracks._layers)
+              layer.setStyle(highlightStyle);
+              var bounds = layer.getBounds();
+              map.fitBounds(bounds);
+
+            });
+
+            layer.on("mouseover", function (e) {
+                //layer.setStyle(highlightStyle);
+                $(".obsah").show();
+                $("#sidebar .jmeno").html(feature.properties.jmeno);
+                $("#sidebar .cas").html(feature.properties.cas);
+            });
+
+    }
+
+
+          }).addTo(map);
+
+
+      });
+
+
+function reset_style(layers) {
+  $.each(layers, function(index, val) {
+    val.setStyle(featureStyle);
+  });
+}
+
+
+</script>
+
+
+
+</body>
+</html>
