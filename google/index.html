@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mapa</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+
+</head>
+
+<style type="text/css">
+  body {
+    font-family: sans-serif;
+  }
+
+  #map {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 500px;
+  }
+
+  #sidebar {
+    position: absolute;
+
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 500px;
+  }
+
+</style>
+
+
+<body>
+  <!--
+
+-->
+<div id="map">
+
+</div>
+<div id="sidebar">
+
+<h1 class="jmeno"></h1>
+
+
+</div>
+
+
+
+<script type="text/javascript">
+
+
+ var mapOptions = {
+  center: { lat: 49.582966, lng: 17.236534},
+  zoom: 13
+};
+var map = new google.maps.Map(document.getElementById('map'),
+  mapOptions);
+
+
+ map.data.loadGeoJson('http://dev.ondrejruzicka.cz/weka.geojson');
+
+
+map.data.addListener('click', function(event) {
+ map.data.revertStyle();
+ map.data.overrideStyle(event.feature, {strokeColor: 'red'});
+ var jmeno = event.feature.getProperty('jmeno');
+ $('.jmeno').html(jmeno);
+
+
+});
+
+
+</script>
+
+
+
+</body>
+</html>
