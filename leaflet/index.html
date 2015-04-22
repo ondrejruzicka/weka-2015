@@ -78,13 +78,6 @@
 
 
 
-        var options = {
-            minZoom: 12,
-            maxZoom: 18,
-            opacity: 1.0,
-            tms: false
-        };
-
 var featureStyle = {
     "color": "#ff0000",
     "weight": 5,
@@ -115,7 +108,7 @@ var highlightStyle = {
     onEachFeature: function (feature, layer) {
 
             layer.on("click", function (e) {
-              reset_style(tracks._layers)
+              reset_style(tracks._layers);
               layer.setStyle(highlightStyle);
               var bounds = layer.getBounds();
               map.fitBounds(bounds);
@@ -123,7 +116,8 @@ var highlightStyle = {
             });
 
             layer.on("mouseover", function (e) {
-                //layer.setStyle(highlightStyle);
+                 reset_style(tracks._layers);
+                layer.setStyle(highlightStyle);
                 $(".obsah").show();
                 $("#sidebar .jmeno").html(feature.properties.jmeno);
                 $("#sidebar .cas").html(feature.properties.cas);
